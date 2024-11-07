@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda en Línea Facultad de Ingeniería</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Encabezado con logo y menú -->
+    <header>
+        <div class="logo">
+            <h1>Tienda en Línea Facultad de Ingeniería</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Categorías</a></li>
+                <li><a href="#" id="cart-btn">Carrito (<span id="cart-count">0</span>)</a></li>
+                <li><a href="#" id="login-btn">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de categorías -->
+    <section class="categories">
+        <h2><center>Categorias</center></h2>
+        <div class="category-list">
+            <button class="category-btn" data-category="comida">Comida</button>
+            <button class="category-btn" data-category="accesorios-electronica">Accesorios y Electrónica</button>
+            <button class="category-btn" data-category="ropa">Ropa</button>
+            <button class="category-btn" data-category="papeleria">Papelería</button>
+            <button class="category-btn" data-category="oculto">Consumos Personales</button>
+        </div>
+    </section>
+
+    <!-- Sección de productos -->
+    <section class="products">
+        <h2><center>Productos</center></h2>
+        <div class="product-list" id="product-list">
+            <!-- Productos generados dinámicamente -->
+        </div>
+    </section>
+
+    <!-- Modal de inicio de sesión -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-login-modal">&times;</span>
+            <h2>Iniciar Sesión / Registrarse</h2>
+            <input type="text" id="username" placeholder="Usuario">
+            <input type="password" id="password" placeholder="Contraseña">
+            <button id="submit-login">Ingresar</button>
+        </div>
+    </div>
+
+    <!-- Modal del carrito -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-cart-modal">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <button id="go-to-cart">Ir a Carrito</button>
+        </div>
+    </div>
+
+    <!-- Modal de registro de producto -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-product-modal">&times;</span>
+            <h2>Registrar Producto</h2>
+            <input type="text" id="product-name" placeholder="Nombre del Producto">
+            <input type="text" id="product-category" placeholder="Categoría">
+            <input type="number" id="product-price" placeholder="Precio">
+            <!-- Input para seleccionar imagen -->
+            <input type="file" id="product-image" accept="image/*">
+            <button id="submit-product">Registrar</button>
+        </div>
+    </div>
+
+    <!-- Botón para abrir el modal de registro de producto -->
+    <button id="add-product-btn">Registrar Producto</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
