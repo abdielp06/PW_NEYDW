@@ -1,17 +1,25 @@
+/* Encabezado */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ff0000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    z-index: 1000; /* Asegura que el encabezado esté por encima del contenido */
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el cálculo de la altura */
+}
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    margin-top: 150px; /* Ajusta el valor para que coincida con la altura del encabezado */
 }
 
-/* Encabezado */
-header {
-    background-color: #ff0000;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
+
 
 .logo h1 {
     margin: 0;
@@ -88,6 +96,22 @@ nav a {
     object-fit: cover; /* Para que las imágenes mantengan su proporción y rellenen el espacio */
     border-radius: 8px; /* Opcional: Añadir bordes redondeados */
 }
+
+/* Animación de encogimiento */
+@keyframes shrink {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.5); /* Ajusta este valor para cambiar el tamaño final */
+        opacity: 0.5; /* Hace que el producto sea semi-transparente al encogerse */
+    }
+}
+
+.shrink-animation {
+    animation: shrink 0.5s ease forwards;
+}
+
 
 .product-item h3 {
     margin-top: 10px;
@@ -180,3 +204,5 @@ nav a {
     border: none;
     cursor: pointer;
 }
+
+

@@ -82,10 +82,22 @@ function addToCart(productName) {
     const product = products.find(p => p.name === productName);
     cart.push(product);
     document.getElementById('cart-count').innerText = cart.length;
-    alert(`${productName} ha sido agregado al carrito.`);
-    // Guardar el carrito en localStorage
+    
+    // Encuentra la imagen del producto que se está agregando al carrito
+    const productItem = document.querySelector(`img[alt="${product.name}"]`);
+
+    // Añadir la clase de animación de encogimiento
+    productItem.classList.add('shrink-animation');
+
+    // Remover la clase después de la animación para restaurar el tamaño
+    productItem.addEventListener('animationend', () => {
+        productItem.classList.remove('shrink-animation');
+    }, { once: true });
+
+    // Guarda el carrito en localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
 }
+
 
 // Función para mostrar los productos en el modal del carrito
 function showCartModal() {
@@ -135,16 +147,6 @@ categoryButtons.forEach(button => {
         displayProducts(filteredProducts);
     });
 });
-
-// Función para agregar al carrito
-function addToCart(productName) {
-    const product = products.find(p => p.name === productName);
-    cart.push(product);
-    document.getElementById('cart-count').innerText = cart.length;
-    alert(`${productName} ha sido agregado al carrito.`);
-    // Guardar el carrito en localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
-}
 
 // Manejo del modal de inicio de sesión
 const loginBtn = document.getElementById('login-btn');
