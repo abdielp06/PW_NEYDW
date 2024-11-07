@@ -4,6 +4,69 @@
     <meta charset="UTF-8">
     <title>Tienda en Línea Facultad de Ingeniería</title>
     <link rel="stylesheet" href="styles.css">
+        <!-- Enlace a Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Encabezado y navegación */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #ff0000;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Animación de salto */
+        .jump:hover i {
+            animation: jump 0.5s ease infinite;
+        }
+
+        @keyframes jump {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Aplica la transición de suavizado */
+        .jump i {
+            transition: transform 0.3s;
+        }
+    </style>
 </head>
 <body>
     <!-- Encabezado con logo y menú -->
@@ -13,13 +76,13 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Categorías</a></li>
-                <li><a href="#" id="cart-btn">Carrito (<span id="cart-count">0</span>)</a></li>
-                <li><a href="#" id="login-btn">Iniciar Sesión</a></li>
+                <li><a href="#" class="jump"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="#" id="cart-btn" class="jump"><i class="fas fa-shopping-cart"></i> Carrito (<span id="cart-count">0</span>)</a></li>
+                <li><a href="#" id="login-btn" class="jump"><i class="fas fa-user"></i> Iniciar Sesión</a></li>
             </ul>
         </nav>
     </header>
+</body>
 
     <!-- Sección de categorías -->
     <section class="categories">
