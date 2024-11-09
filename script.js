@@ -48,7 +48,6 @@ let products = [
     { name: "Marcadores", category: "papeleria", price: 3.0, image: "images/marcadores.jpg" },
     { name: "Resaltadores", category: "papeleria", price: 2.5, image: "images/resaltadores.jpg" },
 ];
-
 // Inicializar el carrito y actualizar el contador
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 document.getElementById('cart-count').innerText = cart.length;
@@ -77,16 +76,13 @@ function addToCart(productName) {
     cart.push(product);
     document.getElementById('cart-count').innerText = cart.length;
 
-    // Encuentra la imagen del producto que se está agregando al carrito
     const productItem = document.querySelector(`img[alt="${product.name}"]`);
     productItem.classList.add('shrink-animation');
 
-    // Remover la clase después de la animación para restaurar el tamaño
     productItem.addEventListener('animationend', () => {
         productItem.classList.remove('shrink-animation');
     }, { once: true });
 
-    // Guarda el carrito en localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
@@ -112,24 +108,20 @@ function showCartModal() {
         modalContent.appendChild(cartItemsList);
     }
 
-    // Botón "Ir a Carrito" para ir a la página del carrito
     const goToCartButton = document.createElement('button');
     goToCartButton.innerText = 'Ir a Carrito';
     goToCartButton.onclick = () => {
         window.location.href = 'cart.html';
     };
 
-    // Botón "Cerrar" para cerrar el modal
     const closeButton = document.createElement('button');
     closeButton.innerText = 'Cerrar';
     closeButton.onclick = () => {
         document.getElementById('cart-modal').style.display = 'none';
     };
 
-    // Añadir botones al modal
     modalContent.appendChild(goToCartButton);
     modalContent.appendChild(closeButton);
-    
     document.getElementById('cart-modal').style.display = 'block';
 }
 
@@ -138,7 +130,7 @@ function removeFromCart(index) {
     cart.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(cart));
     document.getElementById('cart-count').innerText = cart.length;
-    showCartModal(); // Actualizar el contenido del modal del carrito después de eliminar
+    showCartModal();
 }
 
 // Event listener para abrir el modal del carrito
@@ -161,20 +153,45 @@ categoryButtons.forEach(button => {
     });
 });
 
-// Manejo del modal de inicio de sesión
-const loginBtn = document.getElementById('login-btn');
-const loginModal = document.getElementById('login-modal');
-const closeLoginModal = document.getElementById('close-login-modal');
-
-loginBtn.addEventListener('click', () => {
-    loginModal.style.display = 'block';
-});
-
-closeLoginModal.addEventListener('click', () => {
-    loginModal.style.display = 'none';
-});
-
-// Mostrar productos al cargar la página
+// Mostrar todos los productos al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
     displayProducts(products);
 });
+
+// Función para mostrar el modal de inicio de sesión
+function showLoginModal() {
+    const modalContent = document.querySelector('#login-modal .modal-content');
+    modalContent.innerHTML = `
+        <h2>Iniciar Sesión</h2>
+        <input type="text" id="username" placeholder="Usuario">
+        <input type="password" id="password" placeholder="Contraseña">
+    `;
+
+    const loginButton = document.createElement('button');
+    loginButton.innerText = 'Iniciar Sesión';
+    loginButton.onclick = () => {
+        alert("Iniciando sesión...");
+    };
+
+    const registerButton = document.createElement('button');
+    registerButton.innerText = 'Registrarse';
+    registerButton.onclick = () => {
+        window.location.href = 'register.html';
+    };
+
+    const closeButton = document.createElement('button');
+    closeButton.innerText = 'Cerrar';
+    closeButton.onclick = () => {
+        document.getElementById('login-modal').style.display = 'none';
+    };
+
+    modalContent.appendChild(loginButton);
+    modalContent.appendChild(registerButton);
+    modalContent.appendChild(closeButton);
+
+    document.getElementById('login-modal').style.display = 'block';
+}
+
+// Event listener para abrir el modal de inicio de sesión
+const loginBtn = document.getElementById('login-btn');
+loginBtn.addEventListener('click', showLoginModal);
