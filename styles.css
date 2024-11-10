@@ -1,3 +1,12 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    margin-top: 150px; /* Ajusta para que coincida con la altura del encabezado fijo */
+    background-color: #f4f4f4;
+}
+
 /* Encabezado */
 header {
     position: fixed;
@@ -8,23 +17,17 @@ header {
     color: white;
     padding: 20px;
     text-align: center;
-    z-index: 1000; /* Asegura que el encabezado esté por encima del contenido */
-    box-sizing: border-box; /* Asegura que padding y border se incluyan en el cálculo de la altura */
-}
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    margin-top: 150px; /* Ajusta el valor para que coincida con la altura del encabezado */
+    z-index: 1000;
+    box-sizing: border-box;
 }
 
-
-
+/* Logo */
 .logo h1 {
     margin: 0;
+    font-size: 24px;
 }
 
+/* Navegación */
 nav {
     margin-top: 10px;
 }
@@ -45,8 +48,23 @@ nav li:last-child {
 }
 
 nav a {
-    color: rgb(0, 0, 0);
+    color: black;
     text-decoration: none;
+}
+
+/* Botón para ir al carrito */
+.cart-button {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-button:hover {
+    background-color: #cc7a00;
 }
 
 /* Categorías */
@@ -66,6 +84,13 @@ nav a {
     background-color: #ff7e7e;
     border: none;
     cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.category-btn:hover {
+    background-color: #e06b6b;
 }
 
 /* Productos */
@@ -83,18 +108,43 @@ nav a {
     width: 30%;
     border: 1px solid #ffd1d1;
     margin: 10px;
-    padding: 10px;
+    padding: 15px;
     box-sizing: border-box;
     text-align: center;
+    background-color: white;
+    border-radius: 8px;
 }
 
-/* Establecer el tamaño fijo de las imágenes */
 .product-item img {
     width: 100%;
-    max-width: 200px; /* Establecemos un ancho máximo para las imágenes */
-    height: 200px; /* Establecemos una altura fija */
-    object-fit: cover; /* Para que las imágenes mantengan su proporción y rellenen el espacio */
-    border-radius: 8px; /* Opcional: Añadir bordes redondeados */
+    max-width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-item h3 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.product-item p {
+    font-size: 16px;
+    color: #333;
+}
+
+.product-item button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.product-item button:hover {
+    background-color: #0056b3;
 }
 
 /* Animación de encogimiento */
@@ -103,8 +153,8 @@ nav a {
         transform: scale(1);
     }
     100% {
-        transform: scale(0.5); /* Ajusta este valor para cambiar el tamaño final */
-        opacity: 0.5; /* Hace que el producto sea semi-transparente al encogerse */
+        transform: scale(0.5);
+        opacity: 0.5;
     }
 }
 
@@ -112,12 +162,7 @@ nav a {
     animation: shrink 0.5s ease forwards;
 }
 
-
-.product-item h3 {
-    margin-top: 10px;
-}
-
-/* Modal */
+/* Modal de registro de producto */
 .modal {
     display: none;
     position: fixed;
@@ -125,23 +170,65 @@ nav a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
 }
 
 .modal-content {
-    background-color: rgb(255, 189, 189);
+    background-color: #ffbdbd;
     margin: 10% auto;
     padding: 20px;
     width: 80%;
     max-width: 500px;
     position: relative;
+    border-radius: 8px;
+    text-align: center;
 }
 
 .close-btn {
     position: absolute;
     top: 10px;
-    right: 20px;
+    right: 15px;
+    font-size: 24px;
     cursor: pointer;
+    color: #aaa;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+/* Botones dentro del modal */
+.modal-content input,
+.modal-content select,
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+#submit-product {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#submit-product:hover {
+    background-color: #0056b3;
+}
+
+#cancel-product {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#cancel-product:hover {
+    background-color: #c82333;
 }
 
 /* Botón de registrar producto */
@@ -156,6 +243,10 @@ nav a {
     border-radius: 50%;
     font-size: 20px;
     cursor: pointer;
+}
+
+#add-product-btn:hover {
+    background-color: #c0392b;
 }
 
 /* Estilos para el carrito */
@@ -176,6 +267,8 @@ nav a {
     padding: 10px;
     box-sizing: border-box;
     text-align: center;
+    background-color: white;
+    border-radius: 8px;
 }
 
 .cart-item img {
@@ -202,8 +295,15 @@ nav a {
     background-color: #27ae60;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
+
+#checkout-btn:hover {
+    background-color: #219653;
+}
+
+/* Botón de regresar */
 .back-button {
     display: inline-block;
     margin-top: 20px;
