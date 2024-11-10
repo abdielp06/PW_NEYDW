@@ -120,21 +120,29 @@
         </div>
     </div>
 
+    <button id="add-product-btn" class="add-product-btn">Registrar Producto</button>
+
     <!-- Modal de registro de producto -->
     <div class="modal" id="product-modal">
         <div class="modal-content">
             <span class="close-btn" id="close-product-modal">&times;</span>
             <h2>Registrar Producto</h2>
             <input type="text" id="product-name" placeholder="Nombre del Producto">
-            <input type="text" id="product-category" placeholder="Categoría">
+            
+            <!-- Lista desplegable para la categoría -->
+            <select id="product-category">
+                <option value="comida">Comida</option>
+                <option value="accesorios-electronica">Accesorios y Electrónica</option>
+                <option value="ropa">Ropa</option>
+                <option value="papeleria">Papelería</option>
+            </select>
+            
             <input type="number" id="product-price" placeholder="Precio">
             <input type="file" id="product-image" accept="image/*">
             <button id="submit-product">Registrar</button>
+            <button id="cancel-product">Cancelar</button>
         </div>
     </div>
-
-    <!-- Botón para abrir el modal de registro de producto -->
-    <button id="add-product-btn">Registrar Producto</button>
 
     <script src="script.js"></script>
 </body>
