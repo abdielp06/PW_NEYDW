@@ -37,16 +37,16 @@ let products = [
     { name: "Chamarra UNAM Rosa-Gris", category: "ropa", price: 650.0, image: "images/3001000027476-1684457508-679.jpg" },
 
     // Papelería
-    { name: "Cuaderno", category: "papeleria", price: 3.0, image: "images/cuaderno.jpg" },
-    { name: "Lápices", category: "papeleria", price: 1.0, image: "images/lapices.jpg" },
-    { name: "Bolígrafos", category: "papeleria", price: 1.5, image: "images/boligrafos.jpg" },
-    { name: "Borrador", category: "papeleria", price: 0.5, image: "images/borrador.jpg" },
-    { name: "Regla", category: "papeleria", price: 1.2, image: "images/regla.jpg" },
-    { name: "Carpeta", category: "papeleria", price: 2.0, image: "images/carpeta.jpg" },
-    { name: "Tijeras", category: "papeleria", price: 2.5, image: "images/tijeras.jpg" },
-    { name: "Pegamento", category: "papeleria", price: 1.0, image: "images/pegamento.jpg" },
-    { name: "Marcadores", category: "papeleria", price: 3.0, image: "images/marcadores.jpg" },
-    { name: "Resaltadores", category: "papeleria", price: 2.5, image: "images/resaltadores.jpg" },
+    { name: "Cuaderno", category: "papeleria", price: 150.0, image: "images/619p43NXc1L._AC_UF894,1000_QL80_.jpg" },
+    { name: "Lápices", category: "papeleria", price: 5.0, image: "images/61826.jpeg" },
+    { name: "Bolígrafos de Colores", category: "papeleria", price: 1.5, image: "images/37661620-800-auto.webp" },
+    { name: "Borrador", category: "papeleria", price: 10.0, image: "images/PE0114_01.jpg" },
+    { name: "Juego de Geometría", category: "papeleria", price: 50.0, image: "images/81CIc+O0ecL.jpg" },
+    { name: "Carpeta", category: "papeleria", price: 2.0, image: "images/71wJDEi7jjL.jpg" },
+    { name: "Tijeras", category: "papeleria", price: 35.0, image: "images/3-a_800x.webp" },
+    { name: "Pegamento", category: "papeleria", price: 25.0, image: "images/7259.jpeg" },
+    { name: "Marcadores", category: "papeleria", price: 300.0, image: "images/01a6b875-6fa4-3f1d-9e1d-ba4b1279d29f.jpg" },
+    { name: "Resaltadores", category: "papeleria", price: 350.0, image: "images/D_NQ_NP_752327-MLM71231905330_082023-O.webp" },
 ];
 // Inicializar el carrito y actualizar el contador
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
