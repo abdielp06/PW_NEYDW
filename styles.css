@@ -204,5 +204,19 @@ nav a {
     border: none;
     cursor: pointer;
 }
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
 
-
+.back-button:hover {
+    background-color: #0056b3;
+}
