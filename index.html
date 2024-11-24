@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Tienda en Línea Facultad de Ingeniería</title>
     <link rel="stylesheet" href="styles.css">
-    
     <!-- Enlace a Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <style>
         /* Estilos de encabezado y centrado */
         header {
@@ -51,9 +51,12 @@
         }
 
         @keyframes jump {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-5px);
             }
@@ -65,6 +68,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Encabezado con logo y menú centrado -->
     <header>
@@ -74,31 +78,36 @@
         <nav>
             <ul>
                 <li><a href="#" class="jump"><i class="fas fa-home"></i> Inicio</a></li>
-                <li><a href="#" id="cart-btn" class="jump"><i class="fas fa-shopping-cart"></i> Carrito (<span id="cart-count">0</span>)</a></li>
+                <li><a href="#" id="cart-btn" class="jump"><i class="fas fa-shopping-cart"></i> Carrito (<span
+                            id="cart-count">0</span>)</a></li>
                 <li><a href="#" id="login-btn" class="jump"><i class="fas fa-user"></i> Iniciar Sesión</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Sección de categorías -->
-    <section class="categories">
-        <h2><center>Categorias</center></h>
+    <!-- Contenedor principal -->
+    <div class="main-container">
+        <!-- Sección de categorías -->
+        <h2>
+            <center>Categorías</center>
+        </h2>
         <div class="category-list">
             <button class="category-btn" data-category="comida">Comida</button>
             <button class="category-btn" data-category="accesorios-electronica">Accesorios y Electrónica</button>
             <button class="category-btn" data-category="ropa">Ropa</button>
             <button class="category-btn" data-category="papeleria">Papelería</button>
-            <!--<button class="category-btn" data-category="oculto">Consumos Personales</button>
         </div>
-    </section>
 
-    <!-- Sección de productos -->
-    <section class="products">
-        <h2><center>Productos</center></h2>
-        <div class="product-list" id="product-list">
-            <!-- Productos generados dinámicamente -->
-        </div>
-    </section>
+        <!-- Sección de productos -->
+        <section class="products">
+            <h2>
+                <center>Productos</center>
+            </h2>
+            <div class="product-list" id="product-list">
+                <!-- Productos generados dinámicamente -->
+            </div>
+        </section>
+    </div>
 
     <!-- Modal de inicio de sesión -->
     <div class="modal" id="login-modal">
@@ -128,7 +137,7 @@
             <span class="close-btn" id="close-product-modal">&times;</span>
             <h2>Registrar Producto</h2>
             <input type="text" id="product-name" placeholder="Nombre del Producto">
-            
+
             <!-- Lista desplegable para la categoría -->
             <select id="product-category">
                 <option value="comida">Comida</option>
@@ -136,7 +145,7 @@
                 <option value="ropa">Ropa</option>
                 <option value="papeleria">Papelería</option>
             </select>
-            
+
             <input type="number" id="product-price" placeholder="Precio">
             <input type="file" id="product-image" accept="image/*">
             <button id="submit-product">Registrar</button>
@@ -146,4 +155,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

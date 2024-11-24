@@ -11,10 +11,10 @@ function displayProducts(productList) {
         productItem.className = 'product-item';
 
         productItem.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p>Precio: $${product.price}</p>
-            <button onclick="addToCart('${product.name}', ${product.price}, '${product.image}')">Agregar al Carrito</button>
+            <img src="${product.imagen}" alt="${product.nombre}">
+            <h3>${product.nombre}</h3>
+            <p>Precio: $${product.precio}</p>
+            <button onclick="addToCart('${product.nombre}', ${product.precio}, '${product.imagen}')">Agregar al Carrito</button>
         `;
         productListElement.appendChild(productItem);
     });
@@ -98,56 +98,25 @@ const categoryButtons = document.querySelectorAll('.category-btn');
 categoryButtons.forEach(button => {
     button.addEventListener('click', () => {
         const category = button.getAttribute('data-category');
-        const filteredProducts = products.filter(product => product.category === category);
+        // Filtrar los productos según la categoría seleccionada
+        const filteredProducts = products.filter(product => product.categoria === category);
         displayProducts(filteredProducts);
     });
 });
 
 // Obtener productos desde el servidor y mostrar en la página
+let products = [];  // Aquí almacenamos todos los productos
+
 document.addEventListener('DOMContentLoaded', () => {
     fetch('get_products.php')
         .then(response => response.json())
-        .then(products => {
-            const productList = document.getElementById('product-list');
-            productList.innerHTML = ''; // Limpiar cualquier contenido previo
+        .then(data => {
+            products = data;  // Guardamos todos los productos recibidos del servidor
 
-            products.forEach(product => {
-                // Crear un contenedor para cada producto
-                const productItem = document.createElement('div');
-                productItem.classList.add('product-item');
-
-                // Crear y agregar el nombre del producto
-                const productName = document.createElement('h3');
-                productName.textContent = product.nombre;
-                productItem.appendChild(productName);
-
-                // Crear y agregar la categoría
-                const productCategory = document.createElement('p');
-                productCategory.textContent = `Categoría: ${product.categoria}`;
-                productItem.appendChild(productCategory);
-
-                // Crear y agregar el precio
-                const productPrice = document.createElement('p');
-                productPrice.textContent = `Precio: $${product.precio}`;
-                productItem.appendChild(productPrice);
-
-                // Crear y agregar la imagen
-                const productImage = document.createElement('img');
-                productImage.src = product.imagen;  // Asume que la ruta es correcta
-                productImage.alt = product.nombre;
-                productItem.appendChild(productImage);
-
-                // Botón para agregar al carrito
-                const addToCartButton = document.createElement('button');
-                addToCartButton.textContent = 'Agregar al Carrito';
-                addToCartButton.onclick = () => addToCart(product.nombre, product.precio, product.imagen);
-                productItem.appendChild(addToCartButton);
-
-                productList.appendChild(productItem);
-            });
+            // Muestra todos los productos inicialmente
+            displayProducts(products);
         })
         .catch(error => {
             console.error('Error fetching products:', error);
         });
-
 });

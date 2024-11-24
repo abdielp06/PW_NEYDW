@@ -75,23 +75,30 @@ nav a {
 
 .category-list {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    flex-wrap: wrap;
 }
 
 .category-btn {
-    margin: 5px;
-    padding: 10px;
-    background-color: #ff7e7e;
-    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
     cursor: pointer;
+    background-color: #ff7e7e;
     color: white;
+    border: none;
     border-radius: 5px;
-    font-size: 16px;
 }
 
 .category-btn:hover {
-    background-color: #e06b6b;
+    background-color: #ff7e7e;
 }
 
 /* Productos */
