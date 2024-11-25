@@ -132,10 +132,27 @@ function showLoginModal() {
 
     const loginButton = document.createElement('button');
     loginButton.innerText = 'Iniciar Sesión';
-    loginButton.onclick = () => {
-        alert("Iniciando sesión...");
-    };
+    loginButton.addEventListener('click', () => {
+        const usuario = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
 
+        fetch('login.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `usuario=${encodeURIComponent(usuario)}&password=${encodeURIComponent(password)}`
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    localStorage.setItem('user_id', data.user_id);
+                    alert('Inicio de sesión exitoso.');
+                    synchronizeCart(data.user_id);
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => console.error('Error en el inicio de sesión:', error));
+    });
     const registerButton = document.createElement('button');
     registerButton.innerText = 'Registrarse';
     registerButton.onclick = () => {
@@ -209,3 +226,23 @@ submitProduct.addEventListener('click', () => {
             alert('Error al registrar el producto.');
         });
 });
+
+function synchronizeCart(userId) {
+    const localCart = JSON.parse(localStorage.getItem('cart')) || [];
+    const productIds = localCart.map(item => item.id);
+
+    fetch('sync_cart.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `cart=${encodeURIComponent(JSON.stringify(productIds))}&user_id=${encodeURIComponent(userId)}`
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                console.log('Carrito sincronizado:', data.new_products);
+            } else {
+                alert('Error al sincronizar el carrito.');
+            }
+        })
+        .catch(error => console.error('Error en la sincronización del carrito:', error));
+}
