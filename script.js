@@ -185,27 +185,27 @@ submitProduct.addEventListener('click', () => {
     const price = parseFloat(document.getElementById('product-price').value);
     const imageInput = document.getElementById('product-image');
 
-    if (imageInput.files && imageInput.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            products.push({
-                name: name,
-                category: category,
-                price: price,
-                image: e.target.result
-            });
-            displayProducts(products);
-            productModal.style.display = 'none';
-        };
-        reader.readAsDataURL(imageInput.files[0]);
-    } else {
-        products.push({
-            name: name,
-            category: category,
-            price: price,
-            image: 'images/default.jpg'
+    const formData = new FormData();
+    formData.append('product-name', name);
+    formData.append('product-category', category);
+    formData.append('product-price', price);
+    formData.append('product-image', imageInput.files[0]);
+
+    fetch('add_product.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+                window.location.reload();
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error al registrar el producto.');
         });
-        displayProducts(products);
-        productModal.style.display = 'none';
-    }
 });
