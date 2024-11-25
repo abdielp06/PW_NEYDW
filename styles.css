@@ -8,6 +8,12 @@ body {
     background-color: #f4f4f4;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 3rem; 
+}
+
 /* Encabezado */
 header {
     position: fixed;
@@ -16,8 +22,11 @@ header {
     width: 100%;
     background-color: #ff0000;
     color: white;
-    padding: 20px;
+    padding: 10px 20px;
+    display: flex;
     text-align: center;
+    align-items: center;
+    justify-content: space-between;
     z-index: 1000;
     box-sizing: border-box;
 }
@@ -26,6 +35,13 @@ header {
 .logo h1 {
     margin: 0;
     font-size: 24px;
+    gap: 1rem;
+}
+
+/*Logo Imagen*/
+.logo-img {
+    width: 100px;
+    height: auto;
 }
 
 /* Navegación */
@@ -71,9 +87,11 @@ nav a {
 /* Categorías */
 .categories {
     padding: 20px;
+    margin-top: calc(150px + 10px); 
 }
 
 .category-list {
+    margin-top: calc(150px + 10px); 
     display: flex;
     justify-content: center;
     gap: 15px;
