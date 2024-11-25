@@ -120,3 +120,92 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error fetching products:', error);
         });
 });
+
+// Función para mostrar el modal de inicio de sesión
+function showLoginModal() {
+    const modalContent = document.querySelector('#login-modal .modal-content');
+    modalContent.innerHTML = `
+        <h2>Iniciar Sesión</h2>
+        <input type="text" id="username" placeholder="Usuario">
+        <input type="password" id="password" placeholder="Contraseña">
+    `;
+
+    const loginButton = document.createElement('button');
+    loginButton.innerText = 'Iniciar Sesión';
+    loginButton.onclick = () => {
+        alert("Iniciando sesión...");
+    };
+
+    const registerButton = document.createElement('button');
+    registerButton.innerText = 'Registrarse';
+    registerButton.onclick = () => {
+        window.location.href = 'register.html';
+    };
+
+    const closeButton = document.createElement('button');
+    closeButton.innerText = 'Cerrar';
+    closeButton.onclick = () => {
+        document.getElementById('login-modal').style.display = 'none';
+    };
+
+    modalContent.appendChild(loginButton);
+    modalContent.appendChild(registerButton);
+    modalContent.appendChild(closeButton);
+
+    document.getElementById('login-modal').style.display = 'block';
+}
+
+// Event listener para abrir el modal de inicio de sesión
+const loginBtn = document.getElementById('login-btn');
+loginBtn.addEventListener('click', showLoginModal);
+
+const addProductBtn = document.getElementById('add-product-btn');
+const productModal = document.getElementById('product-modal');
+const closeProductModal = document.getElementById('close-product-modal');
+const cancelProduct = document.getElementById('cancel-product');
+
+addProductBtn.addEventListener('click', () => {
+    productModal.style.display = 'block';
+});
+
+closeProductModal.addEventListener('click', () => {
+    productModal.style.display = 'none';
+});
+
+cancelProduct.addEventListener('click', () => {
+    productModal.style.display = 'none';
+    window.location.href = 'index.html'; // Regresa al inicio
+});
+
+// Registrar el nuevo producto
+const submitProduct = document.getElementById('submit-product');
+submitProduct.addEventListener('click', () => {
+    const name = document.getElementById('product-name').value;
+    const category = document.getElementById('product-category').value;
+    const price = parseFloat(document.getElementById('product-price').value);
+    const imageInput = document.getElementById('product-image');
+
+    if (imageInput.files && imageInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            products.push({
+                name: name,
+                category: category,
+                price: price,
+                image: e.target.result
+            });
+            displayProducts(products);
+            productModal.style.display = 'none';
+        };
+        reader.readAsDataURL(imageInput.files[0]);
+    } else {
+        products.push({
+            name: name,
+            category: category,
+            price: price,
+            image: 'images/default.jpg'
+        });
+        displayProducts(products);
+        productModal.style.display = 'none';
+    }
+});
