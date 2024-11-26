@@ -35,11 +35,12 @@ header {
 .logo h1 {
     margin: 0;
     font-size: 24px;
-    gap: 1rem;
+    /*gap: 1rem;*/
 }
 
 /*Logo Imagen*/
 .logo-img {
+    position: absolute;
     width: 100px;
     height: auto;
 }
@@ -87,7 +88,6 @@ nav a {
 /* Categorías */
 .categories {
     padding: 20px;
-    margin-top: calc(150px + 10px); 
 }
 
 .category-list {
