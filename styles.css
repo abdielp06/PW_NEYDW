@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    margin-top: 150px;
+    margin-top: 180px;
     /* Ajusta para que coincida con la altura del encabezado fijo */
     background-color: #f4f4f4;
 }
@@ -218,6 +218,7 @@ nav a {
     margin: 10px 0;
     font-size: 16px;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 #submit-product {
@@ -330,4 +331,18 @@ nav a {
 
 .back-button:hover {
     background-color: #0056b3;
+}
+
+/* Nombres del equipo */
+.team-info {
+    position: fixed;
+    top: 10px; /* Ajusta si es necesario */
+    left: 20px; /* Ajusta si es necesario */
+    /*background-color: rgba(255, 255, 255, 0.95);
+    /*border: 1px solid #ccc; /* Bordes más visibles */
+    border-radius: 25px;
+    padding: 2px 7px; /* Espacio adicional para mejor legibilidad */
+    font-size: 14px;
+    z-index: 2000; /* Asegúrate de que esté por encima de otros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
