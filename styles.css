@@ -340,9 +340,20 @@ nav a {
     left: 20px; /* Ajusta si es necesario */
     /*background-color: rgba(255, 255, 255, 0.95);
     /*border: 1px solid #ccc; /* Bordes más visibles */
-    border-radius: 25px;
-    padding: 2px 7px; /* Espacio adicional para mejor legibilidad */
+    border-radius: 20px;
+    padding: 1px 7px 8px 7px; /* Espacio ajustado: arriba, derecha, abajo, izquierda */    
     font-size: 14px;
     z-index: 2000; /* Asegúrate de que esté por encima de otros elementos */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.team-info ul {
+    margin: 0; /* Elimina márgenes adicionales de la lista */
+    padding-left: 10px; /* Ajusta el espacio entre los puntos y el borde izquierdo */
+    list-style-position: inside; /* Mueve los puntos dentro del bloque de texto */
+}
+
+.team-info ul li {
+    margin: 0; /* Asegúrate de que no haya márgenes en cada elemento */
+    padding: 0; /* Asegúrate de que no haya padding */
 }
