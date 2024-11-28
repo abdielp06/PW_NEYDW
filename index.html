@@ -9,16 +9,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* Estilos del encabezado con video */
+        /* Elimina márgenes y paddings globales */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Encabezado con video */
         header {
-            position: relative;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem;
-            height: 300px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 300px; /* Ajusta la altura del encabezado */
             overflow: hidden;
+            margin: 0; /* Elimina márgenes */
+            padding: 0; /* Elimina paddings */
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
         header video {
@@ -40,7 +47,7 @@
             justify-content: center;
             color: white;
             text-align: center;
-            background-color: rgba(0, 0, 0, 0.5); /* Oscurece el fondo para mejorar legibilidad */
+            background-color: rgba(0, 0, 0, 0.5); /* Oscurece el fondo */
             padding: 20px;
             width: 100%;
             height: 100%;
@@ -125,6 +132,20 @@
                     <li><a href="#" id="login-btn" class="jump"><i class="fas fa-user"></i> Iniciar Sesión</a></li>
                 </ul>
             </nav>
+            <!-- Imagen de mapa ubicación -->
+            <div class="map-container">
+                <p>
+                    Puedes acudir a la tienda<br>
+                    física en esta ubicación.<br>
+                    <strong>Click en la imagen</strong>
+                </p>
+                <img src="images/ubicacion.jpg" usemap="#mapa" alt="Mapa de la tienda">
+                <map name="mapa">
+                    <!-- Área que cubre la mitad inferior de la imagen -->
+                    <area shape="rect" coords="0,40,150,90" href="https://maps.app.goo.gl/mSYuD1dQCYuczC9MA"
+                        alt="Ubicación en Google Maps">
+                </map>
+            </div>
         </div>
     </header>
 
