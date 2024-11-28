@@ -94,6 +94,20 @@
                 <li><a href="#" id="login-btn" class="jump"><i class="fas fa-user"></i> Iniciar Sesión</a></li>
             </ul>
         </nav>
+    <!--  Imagen de mapa ubicacion -->
+        <div class="map-container">
+            <p>
+                Puedes acudir a la tienda<br>
+                física en esta ubicación.<br>
+                <strong>Click en la imagen</strong>
+            </p>
+            <img src="images/ubicacion.jpg" usemap="#mapa" alt="Mapa de la tienda">
+            <map name="mapa">
+                <area shape="rect" coords="34,44,270,350" href="https://www.google.com/maps" alt="Ubicación en Google Maps">
+                <area shape="circle" coords="450,300,75" href="https://www.tienda.com" alt="Página principal de la tienda">
+            </map>
+        </div>
+    
     </header>
 
     <!-- Contenedor principal -->
@@ -108,7 +122,7 @@
             <button class="category-btn" data-category="ropa">Ropa</button>
             <button class="category-btn" data-category="papeleria">Papelería</button>
         </div>
-
+       
         <!-- Sección de productos -->
         <section class="products">
             <h2>
