@@ -121,11 +121,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 });
 
-// Función para mostrar el modal de inicio de sesión
+// Función para mostrar el modal de inicio de sesión y registro
 function showLoginModal() {
     const modalContent = document.querySelector('#login-modal .modal-content');
     modalContent.innerHTML = `
-        <h2>Iniciar Sesión</h2>
+        <h2>Iniciar Sesión o Registrarse</h2>
         <input type="text" id="username" placeholder="Usuario">
         <input type="password" id="password" placeholder="Contraseña">
     `;
@@ -153,11 +153,33 @@ function showLoginModal() {
             })
             .catch(error => console.error('Error en el inicio de sesión:', error));
     });
+
     const registerButton = document.createElement('button');
     registerButton.innerText = 'Registrarse';
-    registerButton.onclick = () => {
-        window.location.href = 'register.html';
-    };
+    registerButton.addEventListener('click', () => {
+        const usuario = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (!usuario || !password) {
+            alert('Por favor, completa los campos de usuario y contraseña.');
+            return;
+        }
+
+        fetch('register.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `usuario=${encodeURIComponent(usuario)}&password=${encodeURIComponent(password)}`
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Registro exitoso. Ahora puedes iniciar sesión.');
+                } else {
+                    alert('Error al registrar usuario: ' + data.message);
+                }
+            })
+            .catch(error => console.error('Error en el registro:', error));
+    });
 
     const closeButton = document.createElement('button');
     closeButton.innerText = 'Cerrar';
@@ -171,6 +193,7 @@ function showLoginModal() {
 
     document.getElementById('login-modal').style.display = 'block';
 }
+
 
 // Event listener para abrir el modal de inicio de sesión
 const loginBtn = document.getElementById('login-btn');
