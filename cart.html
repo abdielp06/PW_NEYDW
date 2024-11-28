@@ -4,12 +4,121 @@
     <meta charset="UTF-8">
     <title>Carrito de Compras</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilo general */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Encabezado con video */
+        header {
+            position: relative;
+            width: 100%;
+            height: 300px; /* Ajusta según el tamaño deseado */
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        header video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        header .overlay {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* Oscurece el video para mejor visibilidad del texto */
+            padding: 20px;
+            width: 100%;
+            height: 100%;
+        }
+
+        header .logo h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        /* Estilo del carrito */
+        .cart {
+            margin: 20px;
+        }
+
+        .cart-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .cart-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .cart-total {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #checkout-btn {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #checkout-btn:hover {
+            background-color: #218838;
+        }
+
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <!-- Encabezado con logo -->
+    <!-- Encabezado con video -->
     <header>
-        <div class="logo">
-            <h1>Carrito de Compras</h1>
+        <video autoplay muted loop playsinline>
+            <source src="video/90251-620258654.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de videos.
+        </video>
+        <div class="overlay">
+            <div class="logo">
+                <h1>Carrito de Compras</h1>
+            </div>
         </div>
     </header>
 
