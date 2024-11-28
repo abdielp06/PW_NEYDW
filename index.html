@@ -9,20 +9,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        /* Estilos de encabezado y centrado */
+        /* Estilos del encabezado con video */
         header {
-            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            position: relative;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 2rem;
-            background-color: #ff0000;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        header video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        header .overlay {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* Oscurece el fondo para mejorar legibilidad */
+            padding: 20px;
+            width: 100%;
+            height: 100%;
         }
 
         .logo h1 {
             margin: 0;
             font-size: 1.8rem;
-            text-align: center;
         }
 
         nav {
@@ -39,7 +65,7 @@
 
         nav ul li a {
             text-decoration: none;
-            color: #000000;
+            color: white;
             font-size: 1rem;
             display: flex;
             align-items: center;
@@ -52,7 +78,6 @@
         }
 
         @keyframes jump {
-
             0%,
             100% {
                 transform: translateY(0);
@@ -63,7 +88,6 @@
             }
         }
 
-        /* Aplica la transición de suavizado */
         .jump i {
             transition: transform 0.3s;
         }
@@ -71,8 +95,8 @@
 </head>
 
 <body>
-     <!-- Cuadro con los nombres del equipo -->
-     <div class="team-info">
+    <!-- Cuadro con los nombres del equipo -->
+    <div class="team-info">
         <h3>Integrantes del Equipo:</h3>
         <ul>
             <li>Morales Martínez Karla Verónica</li>
@@ -82,35 +106,26 @@
         </ul>
     </div>
 
-    <!-- Encabezado con logo y menú centrado -->
+    <!-- Encabezado con video de fondo -->
     <header>
-        <div class="logo">
-            <img src="images/Logo-FiShop.png" alt="LOGO-FiShop" class="logo-img">
-            <h1>Facultad de Ingeniería - Shop Online</h1>
+        <video autoplay muted loop playsinline>
+            <source src="video/video-compras.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de videos.
+        </video>
+        <div class="overlay">
+            <div class="logo">
+                <img src="images/Logo-FiShop.png" alt="LOGO-FiShop" class="logo-img">
+                <h1>Facultad de Ingeniería - Shop Online</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="jump"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="#" id="cart-btn" class="jump"><i class="fas fa-shopping-cart"></i> Carrito (<span
+                                id="cart-count">0</span>)</a></li>
+                    <li><a href="#" id="login-btn" class="jump"><i class="fas fa-user"></i> Iniciar Sesión</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#" class="jump"><i class="fas fa-home"></i> Inicio</a></li>
-                <li><a href="#" id="cart-btn" class="jump"><i class="fas fa-shopping-cart"></i> Carrito (<span
-                            id="cart-count">0</span>)</a></li>
-                <li><a href="#" id="login-btn" class="jump"><i class="fas fa-user"></i> Iniciar Sesión</a></li>
-            </ul>
-        </nav>
-    <!-- Imagen de mapa ubicación -->
-        <div class="map-container">
-            <p>
-                Puedes acudir a la tienda<br>
-                física en esta ubicación.<br>
-                <strong>Click en la imagen</strong>
-            </p>
-            <img src="images/ubicacion.jpg" usemap="#mapa" alt="Mapa de la tienda">
-            <map name="mapa">
-                <!-- Área que cubre la mitad inferior de la imagen -->
-                <area shape="rect" coords="0,40,150,90" href="https://maps.app.goo.gl/mSYuD1dQCYuczC9MA" alt="Ubicación en Google Maps">
-            </map>
-        </div>
-
-    
     </header>
 
     <!-- Contenedor principal -->
@@ -125,7 +140,7 @@
             <button class="category-btn" data-category="ropa">Ropa</button>
             <button class="category-btn" data-category="papeleria">Papelería</button>
         </div>
-       
+
         <!-- Sección de productos -->
         <section class="products">
             <h2>
