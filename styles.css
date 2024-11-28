@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    margin-top: 150px;
+    margin-top: 180px;
     /* Ajusta para que coincida con la altura del encabezado fijo */
     background-color: #f4f4f4;
 }
@@ -245,6 +245,7 @@ nav a {
     margin: 10px 0;
     font-size: 16px;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 #submit-product {
@@ -357,4 +358,59 @@ nav a {
 
 .back-button:hover {
     background-color: #0056b3;
+}
+
+/* Nombres del equipo */
+.team-info {
+    position: fixed;
+    top: 10px; /* Ajusta si es necesario */
+    left: 20px; /* Ajusta si es necesario */
+    /*background-color: rgba(255, 255, 255, 0.95);
+    /*border: 1px solid #ccc; /* Bordes más visibles */
+    border-radius: 20px;
+    padding: 1px 7px 8px 7px; /* Espacio ajustado: arriba, derecha, abajo, izquierda */    
+    font-size: 14px;
+    z-index: 2000; /* Asegúrate de que esté por encima de otros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.team-info ul {
+    margin: 0; /* Elimina márgenes adicionales de la lista */
+    padding-left: 10px; /* Ajusta el espacio entre los puntos y el borde izquierdo */
+    list-style-position: inside; /* Mueve los puntos dentro del bloque de texto */
+}
+
+.team-info ul li {
+    margin: 0; /* Asegúrate de que no haya márgenes en cada elemento */
+    padding: 0; /* Asegúrate de que no haya padding */
+}
+
+.map-container {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    text-align: left;
+    /*background-color: rgba(245, 245, 245, 0.9);*/
+    padding: 15px;
+    /*border: 1px solid #ccc;*/
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
+      /* Organiza el texto y la imagen en una fila */
+      display: flex;
+      align-items: center;
+      gap: 10px; /* Espaciado entre texto e imagen */
+}
+
+.map-container img {
+    width: 80px;
+    height: auto;
+    display: block;
+}
+
+.map-container p {
+    font-size: 14px; /* Tamaño del texto */
+    color: #333;
+    margin: 0;
+    line-height: 1.5; /* Altura de línea para mayor legibilidad */
 }
