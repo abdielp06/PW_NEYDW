@@ -336,8 +336,8 @@ nav a {
 /* Nombres del equipo */
 .team-info {
     position: fixed;
-    top: 10px; /* Ajusta si es necesario */
-    left: 20px; /* Ajusta si es necesario */
+    top: 40px; /* Ajusta si es necesario */
+    left: 25px; /* Ajusta si es necesario */
     /*background-color: rgba(255, 255, 255, 0.95);
     /*border: 1px solid #ccc; /* Bordes más visibles */
     border-radius: 20px;
