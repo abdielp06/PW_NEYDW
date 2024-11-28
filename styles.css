@@ -336,26 +336,26 @@ nav a {
 /* Nombres del equipo */
 .team-info {
     position: fixed;
-    top: 40px; /* Ajusta si es necesario */
-    left: 25px; /* Ajusta si es necesario */
+    top: 40px; 
+    left: 25px; 
     /*background-color: rgba(255, 255, 255, 0.95);
     /*border: 1px solid #ccc; /* Bordes más visibles */
     border-radius: 20px;
-    padding: 1px 7px 8px 7px; /* Espacio ajustado: arriba, derecha, abajo, izquierda */    
+    padding: 1px 7px 8px 7px;  
     font-size: 14px;
-    z-index: 2000; /* Asegúrate de que esté por encima de otros elementos */
+    z-index: 2000; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .team-info ul {
-    margin: 0; /* Elimina márgenes adicionales de la lista */
-    padding-left: 10px; /* Ajusta el espacio entre los puntos y el borde izquierdo */
-    list-style-position: inside; /* Mueve los puntos dentro del bloque de texto */
+    margin: 0; 
+    padding-left: 10px; 
+    list-style-position: inside; 
 }
 
 .team-info ul li {
-    margin: 0; /* Asegúrate de que no haya márgenes en cada elemento */
-    padding: 0; /* Asegúrate de que no haya padding */
+    margin: 0; 
+    padding: 0; 
     color: #efeceb;
 }
 
